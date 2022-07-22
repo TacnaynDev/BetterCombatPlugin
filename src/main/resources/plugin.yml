@@ -1,0 +1,29 @@
+name: BetterCombat
+version: '${project.version}'
+main: me.tacnayn.bettercombat.BetterCombat
+api-version: 1.18
+authors: [ TacNayn ]
+description: Implementation of an AoE attack system
+depend:
+  - ProtocolLib
+commands:
+  testdungeongen:
+    usage: /<command> <count>
+    description: Test the dungeon generator
+  setstat:
+    usage: /<command> <type> <value>
+    description: Set stat value for the held item
+  copyworldfile:
+    usage: /<command> <filename>
+    description: Loads the world
+  switchworlds:
+    usage: /<command> <world>
+    description: Switches the player to another world
+  swapchunks:
+    usage: /<command> <sourceWorld> <targetWorld> <chunkX> <chunkZ>
+  loadworld:
+    usage: /<command> <world>
+    description: Loads the world
+  unloadworld:
+    usage: /<command> <world>
+    description: Unloads the world
