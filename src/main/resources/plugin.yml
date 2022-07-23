@@ -17,13 +17,24 @@ commands:
     usage: /<command> <filename>
     description: Loads the world
   switchworlds:
+    aliases:
+      - swapworlds
+      - goto
     usage: /<command> <world>
     description: Switches the player to another world
   swapchunks:
     usage: /<command> <sourceWorld> <targetWorld> <chunkX> <chunkZ>
   loadworld:
+    aliases: load
     usage: /<command> <world>
     description: Loads the world
   unloadworld:
+    aliases: unload
     usage: /<command> <world>
     description: Unloads the world
+  testpaste:
+    usage: /<command>
+    description: Test the block paste system
+  fillblocksthroughfile:
+    usage: /<command> <world> <x1> <y1> <z1> <x2> <y2> <z2>
+    description: Fills blocks by directly writing to file

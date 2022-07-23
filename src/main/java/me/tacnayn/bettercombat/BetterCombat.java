@@ -1,7 +1,6 @@
 package me.tacnayn.bettercombat;
 
 import me.tacnayn.bettercombat.Commands.*;
-import me.tacnayn.bettercombat.DungeonGeneration.DungeonGenerator;
 import me.tacnayn.bettercombat.Listeners.OnPlayerAttackListener;
 import me.tacnayn.bettercombat.Listeners.OnSwingListener;
 
@@ -26,6 +25,8 @@ public final class BetterCombat extends JavaPlugin {
         getCommand("testdungeongen").setExecutor(new TestDungeonGenCommand(this));
         getCommand("loadworld").setExecutor(new LoadWorldCommand());
         getCommand("unloadworld").setExecutor(new UnloadWorldCommand());
+        getCommand("testpaste").setExecutor(new TestPasteCommand(this));
+        getCommand("fillblocksthroughfile").setExecutor(new FillBlocksThroughFileCommand(this));
 
     }
 }

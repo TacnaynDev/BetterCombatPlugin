@@ -25,7 +25,7 @@ public class UnloadWorldCommand implements CommandExecutor {
         }
 
         world.getPlayers().forEach(player -> player.kickPlayer("Unloading world"));
-        boolean successful = Bukkit.unloadWorld(world, false);
+        boolean successful = Bukkit.unloadWorld(world, true);
 
         if(successful) sender.sendMessage(ChatColor.GREEN + "World unloaded successfully!");
         else sender.sendMessage(ChatColor.RED + "World could not be unloaded.");
