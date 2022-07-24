@@ -1,6 +1,7 @@
 package me.tacnayn.bettercombat;
 
 import me.tacnayn.bettercombat.Commands.*;
+import me.tacnayn.bettercombat.Commands.TabCompletors.CurrentBlockTab;
 import me.tacnayn.bettercombat.Listeners.OnPlayerAttackListener;
 import me.tacnayn.bettercombat.Listeners.OnSwingListener;
 
@@ -21,12 +22,11 @@ public final class BetterCombat extends JavaPlugin {
         getCommand("setstat").setExecutor(new SetStatCommand(this));
         getCommand("copyworldfile").setExecutor(new CopyWorldFileCommand());
         getCommand("switchworlds").setExecutor(new SwitchWorldsCommand());
-        getCommand("swapchunks").setExecutor(new SwapChunksCommand());
         getCommand("testdungeongen").setExecutor(new TestDungeonGenCommand(this));
         getCommand("loadworld").setExecutor(new LoadWorldCommand());
         getCommand("unloadworld").setExecutor(new UnloadWorldCommand());
         getCommand("testpaste").setExecutor(new TestPasteCommand(this));
-        getCommand("fillblocksthroughfile").setExecutor(new FillBlocksThroughFileCommand(this));
+        getCommand("testpaste").setTabCompleter(new CurrentBlockTab(0));
 
     }
 }

@@ -1,6 +1,4 @@
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\SetStatCommand.java
-F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\SwapChunksCommand.java
-F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\FillBlocksThroughFileCommand.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Listeners\OnSwingListener.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\CopyWorldFileCommand.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\SwitchWorldsCommand.java
@@ -8,6 +6,7 @@ F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\TestDungeonGenCommand.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\DungeonGeneration\DungeonGenerator.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\LoadWorldCommand.java
+F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\TabCompletors\CurrentBlockTab.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\util\EntityFinders.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\Commands\TestPasteCommand.java
 F:\Users\TacoCat\Desktop\Development\BetterCombatPlugin\src\main\java\me\tacnayn\bettercombat\DungeonGeneration\DungeonPaster.java

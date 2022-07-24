@@ -6,6 +6,9 @@ authors: [ TacNayn ]
 description: Implementation of an AoE attack system
 depend:
   - ProtocolLib
+libraries:
+  - com.github.shynixn.structureblocklib:structureblocklib-bukkit-api:2.8.0
+  - com.github.shynixn.structureblocklib:structureblocklib-bukkit-core:2.8.0
 commands:
   testdungeongen:
     usage: /<command> <count>
@@ -22,8 +25,6 @@ commands:
       - goto
     usage: /<command> <world>
     description: Switches the player to another world
-  swapchunks:
-    usage: /<command> <sourceWorld> <targetWorld> <chunkX> <chunkZ>
   loadworld:
     aliases: load
     usage: /<command> <world>
@@ -33,8 +34,5 @@ commands:
     usage: /<command> <world>
     description: Unloads the world
   testpaste:
-    usage: /<command>
+    usage: /<command> <x> <y> <z>
     description: Test the block paste system
-  fillblocksthroughfile:
-    usage: /<command> <world> <x1> <y1> <z1> <x2> <y2> <z2>
-    description: Fills blocks by directly writing to file
