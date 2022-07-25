@@ -1,8 +1,7 @@
-package me.tacnayn.bettercombat.Commands;
+package me.tacnayn.bettercombat.commands;
 
 import me.tacnayn.bettercombat.BetterCombat;
-import me.tacnayn.bettercombat.DungeonGeneration.DungeonGenerator;
-import org.bukkit.Bukkit;
+import me.tacnayn.bettercombat.dungeongeneration.DungeonGenerator;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

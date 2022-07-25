@@ -36,3 +36,6 @@ commands:
   testpaste:
     usage: /<command> <x> <y> <z>
     description: Test the block paste system
+  generatedungeon:
+    usage: /<command>
+    description: Generates a new dungeon

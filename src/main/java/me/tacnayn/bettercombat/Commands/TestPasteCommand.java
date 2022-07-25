@@ -1,7 +1,8 @@
-package me.tacnayn.bettercombat.Commands;
+package me.tacnayn.bettercombat.commands;
 
 import me.tacnayn.bettercombat.BetterCombat;
-import me.tacnayn.bettercombat.DungeonGeneration.DungeonPaster;
+import me.tacnayn.bettercombat.dungeongeneration.DungeonPaster;
+import me.tacnayn.bettercombat.dungeongeneration.DungeonRoomFileManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -39,7 +40,7 @@ public class TestPasteCommand implements CommandExecutor {
 
             Location loc = new Location(p.getWorld(), x, y, z);
 
-            new DungeonPaster(plugin).testPaste(sender, loc);
+            new DungeonPaster(plugin, DungeonRoomFileManager.getInstance()).testPaste(sender, loc);
         }
 
         return true;

@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.Commands;
+package me.tacnayn.bettercombat.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

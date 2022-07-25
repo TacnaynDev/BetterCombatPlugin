@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.Listeners;
+package me.tacnayn.bettercombat.listeners;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;

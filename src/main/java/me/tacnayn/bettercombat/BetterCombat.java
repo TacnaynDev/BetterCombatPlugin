@@ -1,11 +1,14 @@
 package me.tacnayn.bettercombat;
 
-import me.tacnayn.bettercombat.Commands.*;
-import me.tacnayn.bettercombat.Commands.TabCompletors.CurrentBlockTab;
-import me.tacnayn.bettercombat.Listeners.OnPlayerAttackListener;
-import me.tacnayn.bettercombat.Listeners.OnSwingListener;
+import me.tacnayn.bettercombat.commands.*;
+import me.tacnayn.bettercombat.commands.tabcompletion.CurrentBlockTab;
+import me.tacnayn.bettercombat.dungeongeneration.DungeonRoomFileManager;
+import me.tacnayn.bettercombat.listeners.OnPlayerAttackListener;
+import me.tacnayn.bettercombat.listeners.OnSwingListener;
 
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public final class BetterCombat extends JavaPlugin {
 
@@ -25,8 +28,11 @@ public final class BetterCombat extends JavaPlugin {
         getCommand("testdungeongen").setExecutor(new TestDungeonGenCommand(this));
         getCommand("loadworld").setExecutor(new LoadWorldCommand());
         getCommand("unloadworld").setExecutor(new UnloadWorldCommand());
+        getCommand("generatedungeon").setExecutor(new GenerateDungeonCommand(this));
+
         getCommand("testpaste").setExecutor(new TestPasteCommand(this));
         getCommand("testpaste").setTabCompleter(new CurrentBlockTab(0));
 
+        DungeonRoomFileManager.getInstance().updateRoomCache(new File("plugins/BetterCombat/dungeon_rooms"));
     }
 }

@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.DungeonGeneration;
+package me.tacnayn.bettercombat.dungeongeneration;
 
 import org.bukkit.command.CommandSender;
 
@@ -58,7 +58,7 @@ public class DungeonGenerator {
      *
      * @return A dungeon floor plan for use with room placement methods.
      */
-    private DungeonTile[][] generateFloorPlan(double roomChance, double largeRoomChance, int dungeonBorders, int targetRoomCount, int attempts){
+    public DungeonTile[][] generateFloorPlan(double roomChance, double largeRoomChance, int dungeonBorders, int targetRoomCount, int attempts){
         dungeonGrid = new DungeonTile[dungeonBorders][dungeonBorders];
         tilesToIterate = new LinkedList<>();
         deadEnds = new ArrayList<>(10);
@@ -80,7 +80,7 @@ public class DungeonGenerator {
         // Place a starting tile
         int centerTile = dungeonBorders / 2;;
         startTile = dungeonGrid[centerTile][centerTile];
-        startTile.setRoomType(RoomType.START);
+        startTile.roomType = RoomType.START;
         startTile.distanceToStart = 0;
         tilesToIterate.addLast(startTile);
 
@@ -363,7 +363,7 @@ public class DungeonGenerator {
          *
          * @implNote parts must include this tile
          */
-        public void turnIntoLargeRoom(DungeonTile[] parts){
+        private void turnIntoLargeRoom(DungeonTile[] parts){
             largeRoomParts = parts;
             roomType = RoomType.LARGE;
 
@@ -375,8 +375,7 @@ public class DungeonGenerator {
             // Remove any neighbors that are part of the large room
             Arrays.asList(parts).forEach(neighbors::remove);
         }
-
-        public void addNeighbors(DungeonTile[][] tileset) {
+        private void addNeighbors(DungeonTile[][] tileset) {
             if (x > 0) {
                 neighbors.add(tileset[x - 1][y]);
             }
@@ -390,25 +389,48 @@ public class DungeonGenerator {
                 neighbors.add(tileset[x][y + 1]);
             }
         }
-
-        private int getX() {
+        public int getX() {
             return x;
         }
-
-        private int getY() {
+        public int getY() {
             return y;
         }
-
         public boolean isRoom() {
             return roomType != RoomType.EMPTY;
         }
-
+        public boolean isNotRoom() {
+            return roomType == RoomType.EMPTY;
+        }
         public RoomType getRoomType() {
             return roomType;
         }
+        public int realNeighborsCount() {
+            return (int) neighbors.stream()
+                    .filter(DungeonTile::isRoom)
+                    .count();
+        }
+        public int directionTo(DungeonTile other) {
+            // TODO: Calculate direction to get to other tile
+        }
+        /**
+         * Checks whether this tile's neighbors are across, or diagonal from each other
+         *
+         * @return true if this tile's neighbors are across, false if this tile's neighbors are diagonal
+         * @throws IllegalStateException if this tile has more or less than 2 neighbors.
+         */
+        public boolean isCornerOrAcross(){
 
-        public void setRoomType(RoomType roomType){
-            this.roomType = roomType;
+            DungeonTile[] roomNeighbors = this.neighbors.stream()
+                    .filter(DungeonTile::isRoom)
+                    .toArray(DungeonTile[]::new);
+
+            if(roomNeighbors.length != 2) throw new IllegalStateException("Tile has " + roomNeighbors.length + " neighbors. Expected: 2");
+
+            // Check if the neighbors are across. If they are not, they must be diagonal.
+            return roomNeighbors[0].getX() == roomNeighbors[1].getX() || roomNeighbors[0].getY() == roomNeighbors[1].getY();
+        }
+        public DungeonTile[] getLargeRoomParts() {
+            return largeRoomParts;
         }
     }
 
