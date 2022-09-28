@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.dungeongeneration;
+package me.tacnayn.bettercombat.dungeongenerator;
 
 import org.bukkit.generator.ChunkGenerator;
 
@@ -38,4 +38,6 @@ public class EmptyChunkGenerator extends ChunkGenerator {
     public boolean shouldGenerateStructures() {
         return false;
     }
+
+
 }

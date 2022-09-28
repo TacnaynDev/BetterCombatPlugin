@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.customgearsystem;
+package me.tacnayn.bettercombat.customitems;
 
 import me.tacnayn.bettercombat.BetterCombat;
 import me.tacnayn.bettercombat.util.EntityFinders;

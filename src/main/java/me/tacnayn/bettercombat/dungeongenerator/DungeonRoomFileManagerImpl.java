@@ -1,21 +1,28 @@
-package me.tacnayn.bettercombat.dungeongeneration;
-
-import me.tacnayn.bettercombat.api.dungeongeneration.IDungeonRoomFileManager;
+package me.tacnayn.bettercombat.dungeongenerator;
 
 import java.io.File;
 import java.util.*;
 
-public class DungeonRoomFileManager implements IDungeonRoomFileManager {
+public class DungeonRoomFileManagerImpl implements DungeonRoomFileManager {
 
     // Singleton
-    private final static DungeonRoomFileManager instance = new DungeonRoomFileManager();
-    private DungeonRoomFileManager(){};
-    public static DungeonRoomFileManager getInstance() { return instance; }
+    private final static DungeonRoomFileManagerImpl instance = new DungeonRoomFileManagerImpl();
+    private DungeonRoomFileManagerImpl(){};
+    public static DungeonRoomFileManagerImpl getInstance() { return instance; }
 
+    List<File> emptyRooms;
     HashMap<DungeonFileType, List<File>> dungeonRoomCache; // Each index is a folder full of files
+
     @Override
     public Collection<File> getRoomFiles(DungeonFileType type) {
-        return dungeonRoomCache.get(type.ordinal());
+        return dungeonRoomCache.get(type);
+    }
+
+    @Override
+    public File blankRoomFile(int height) {
+        int index = height / 24;
+        if(index >= emptyRooms.size()) return null;
+        return emptyRooms.get(index);
     }
 
     /**
@@ -27,6 +34,7 @@ public class DungeonRoomFileManager implements IDungeonRoomFileManager {
 
         DungeonFileType[] roomTypes = DungeonFileType.values();
         dungeonRoomCache = new HashMap<>(roomTypes.length);
+        emptyRooms = new ArrayList<>();
 
         // Grab the direct path to all the files in the dungeon rooms folder
         for (DungeonFileType roomType : DungeonFileType.values()) {
@@ -35,6 +43,14 @@ public class DungeonRoomFileManager implements IDungeonRoomFileManager {
             // Add all the files to the cache
             List<File> roomFiles = List.of(Objects.requireNonNull(subFolder.listFiles()));
             dungeonRoomCache.put(roomType, roomFiles);
+        }
+
+        // Grab all the empty rooms
+        File emptyRoomsFolder = new File(dungeonRoomsFolder, "empty_rooms");
+
+        for(int i = 24; i < 192; i += 24){
+            File emptyRoom = new File(emptyRoomsFolder, "empty_tile_" + i + ".nbt");
+            emptyRooms.add(emptyRoom);
         }
     }
 }

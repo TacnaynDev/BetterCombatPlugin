@@ -1,17 +1,23 @@
 package me.tacnayn.bettercombat.commands;
 
 import me.tacnayn.bettercombat.BetterCombat;
-import me.tacnayn.bettercombat.customgearsystem.CustomItem;
-import me.tacnayn.bettercombat.customgearsystem.StatType;
+import me.tacnayn.bettercombat.customitems.CustomItem;
+import me.tacnayn.bettercombat.customitems.StatType;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class SetStatCommand implements CommandExecutor {
+import java.util.List;
+import java.util.stream.Stream;
+
+public class SetStatCommand implements TabExecutor {
 
     private BetterCombat plugin;
     private final String usage = ChatColor.RED + "/setcustomstat <stat> <value>";
@@ -55,6 +61,16 @@ public class SetStatCommand implements CommandExecutor {
         }
 
         return true;
+    }
+
+    @Nullable
+    @Override
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        if(args.length == 0){
+            return Stream.of(StatType.values()).map(StatType::name).toList();
+        }
+
+        return null;
     }
 
     // Converts a string to any primitive type

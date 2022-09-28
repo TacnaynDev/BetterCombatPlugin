@@ -13,14 +13,14 @@ import java.util.List;
 /**
  * Autocompletes the provided argument with the current block's coordinates
  */
-public class CurrentBlockTab implements TabCompleter {
+public class CurrentBlockTabCompleter implements TabCompleter {
 
     private int argNumber;
 
     /**
      * @param argNumber Which argument this should tab complete
      */
-    public CurrentBlockTab(int argNumber) {
+    public CurrentBlockTabCompleter(int argNumber) {
         this.argNumber = argNumber;
     }
 

@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.customgearsystem;
+package me.tacnayn.bettercombat.customitems;
 
 import org.bukkit.persistence.PersistentDataType;
 

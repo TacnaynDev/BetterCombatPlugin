@@ -1,8 +1,9 @@
 package me.tacnayn.bettercombat;
 
 import me.tacnayn.bettercombat.commands.*;
-import me.tacnayn.bettercombat.commands.tabcompletion.CurrentBlockTab;
-import me.tacnayn.bettercombat.dungeongeneration.DungeonRoomFileManager;
+import me.tacnayn.bettercombat.commands.tabcompletion.CurrentBlockTabCompleter;
+import me.tacnayn.bettercombat.commands.tabcompletion.WorldsTabCompleter;
+import me.tacnayn.bettercombat.dungeongenerator.DungeonRoomFileManagerImpl;
 import me.tacnayn.bettercombat.listeners.OnPlayerAttackListener;
 import me.tacnayn.bettercombat.listeners.OnSwingListener;
 
@@ -29,10 +30,15 @@ public final class BetterCombat extends JavaPlugin {
         getCommand("loadworld").setExecutor(new LoadWorldCommand());
         getCommand("unloadworld").setExecutor(new UnloadWorldCommand());
         getCommand("generatedungeon").setExecutor(new GenerateDungeonCommand(this));
+        getCommand("pasteschematic").setExecutor(new PasteSchematicCommand(this));
+        getCommand("cleardungeon").setExecutor(new ClearDungeonCommand(this));
 
-        getCommand("testpaste").setExecutor(new TestPasteCommand(this));
-        getCommand("testpaste").setTabCompleter(new CurrentBlockTab(0));
+        getCommand("switchworlds").setTabCompleter(new WorldsTabCompleter());
+        getCommand("unloadworld").setTabCompleter(new WorldsTabCompleter());
+        getCommand("generatedungeon").setTabCompleter(new WorldsTabCompleter());
+        getCommand("cleardungeon").setTabCompleter(new WorldsTabCompleter());
+        getCommand("pasteschematic").setTabCompleter(new CurrentBlockTabCompleter(0));
 
-        DungeonRoomFileManager.getInstance().updateRoomCache(new File("plugins/BetterCombat/dungeon_rooms"));
+        DungeonRoomFileManagerImpl.getInstance().updateRoomCache(new File("plugins/BetterCombat/dungeon_rooms"));
     }
 }
