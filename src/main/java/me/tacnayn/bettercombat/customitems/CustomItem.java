@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.CustomGearSystem;
+package me.tacnayn.bettercombat.customitems;
 
 import me.tacnayn.bettercombat.BetterCombat;
 import me.tacnayn.bettercombat.util.EntityFinders;
@@ -20,7 +20,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.util.BoundingBox;
-import org.bukkit.util.Vector;
 import oshi.util.tuples.Pair;
 
 import javax.annotation.Nullable;
@@ -28,7 +27,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 public class CustomItem extends ItemStack {
 

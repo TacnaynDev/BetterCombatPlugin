@@ -33,6 +33,12 @@ commands:
     aliases: unload
     usage: /<command> <world>
     description: Unloads the world
-  testpaste:
-    usage: /<command> <x> <y> <z>
-    description: Test the block paste system
+  pasteschematic:
+    usage: /<command> <x> <y> <z> <file>
+    description: Paste a schematic from the dungeon_rooms folder
+  generatedungeon:
+    usage: /<command> <world>
+    description: Generates a new dungeon
+  cleardungeon:
+    usage: /<command> <world>
+    description: Sets the dungeon to air

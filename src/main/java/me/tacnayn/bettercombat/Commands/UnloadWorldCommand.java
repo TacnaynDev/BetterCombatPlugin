@@ -1,4 +1,4 @@
-package me.tacnayn.bettercombat.Commands;
+package me.tacnayn.bettercombat.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -25,7 +25,7 @@ public class UnloadWorldCommand implements CommandExecutor {
         }
 
         world.getPlayers().forEach(player -> player.kickPlayer("Unloading world"));
-        boolean successful = Bukkit.unloadWorld(world, true);
+        boolean successful = Bukkit.unloadWorld(world, false);
 
         if(successful) sender.sendMessage(ChatColor.GREEN + "World unloaded successfully!");
         else sender.sendMessage(ChatColor.RED + "World could not be unloaded.");

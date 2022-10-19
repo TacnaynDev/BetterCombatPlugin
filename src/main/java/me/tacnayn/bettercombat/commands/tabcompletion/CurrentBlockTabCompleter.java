@@ -1,6 +1,5 @@
-package me.tacnayn.bettercombat.Commands.TabCompletors;
+package me.tacnayn.bettercombat.commands.tabcompletion;
 
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,22 +8,19 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 /**
  * Autocompletes the provided argument with the current block's coordinates
  */
-public class CurrentBlockTab implements TabCompleter {
+public class CurrentBlockTabCompleter implements TabCompleter {
 
     private int argNumber;
 
     /**
      * @param argNumber Which argument this should tab complete
      */
-    public CurrentBlockTab(int argNumber) {
+    public CurrentBlockTabCompleter(int argNumber) {
         this.argNumber = argNumber;
     }
 

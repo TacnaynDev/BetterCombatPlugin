@@ -1,8 +1,8 @@
-package me.tacnayn.bettercombat.Listeners;
+package me.tacnayn.bettercombat.listeners;
 
 import me.tacnayn.bettercombat.BetterCombat;
-import me.tacnayn.bettercombat.CustomGearSystem.CustomItem;
-import me.tacnayn.bettercombat.CustomGearSystem.StatType;
+import me.tacnayn.bettercombat.customitems.CustomItem;
+import me.tacnayn.bettercombat.customitems.StatType;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
